@@ -8,42 +8,49 @@
   - ？
 - EventBridgeをトリガーとしたLambdaの実行が容易に実現できること
   - API Gateway
-    - 用意・・？
+    - 容易・・？
   - スケジューラ
-    - ？
+    - 容易・・？
   - Kinesis Data Streams
-    - ？
-    - <https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#kinesis>
+    - たぶん？
+    - <https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_events-readme.html#rule>
   - s3
-    - ？
-    - <https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#s3>
+    - たぶん？
+    - <https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_events-readme.html#rule>
   - DynamoDB
-    - ？
-    - <https://github.com/aws/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb>
+    - たぶん？
+    - <https://zenn.dev/collabostyle/articles/3ed9b3440c7d09>
   - Glue
-    - SAMだとCloudFormationを自前で書く必要がある
-      - EventBridgeRuleを指定すればできた
+    - ？
   - StepFunctions
     - ？
 - CloudFormation等を利用したIaCが実現できること
-  - ？
+  - OK
 - 商用利用できること
-  - ？
-  - <https://github.com/aws/serverless-application-model?tab=Apache-2.0-1-ov-file>
+  - OK
+  - <https://github.com/aws/aws-cdk/blob/main/LICENSE>
 - CI/CDパイプラインへの組み込みが容易であること
-  - ？
-  - <https://aws.amazon.com/jp/builders-flash/202110/new-lambda-container-development-6>
+  - たぶん？
+  - <https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/cdk_pipeline.html>
+  - <https://cdkworkshop.com/ja/50-java/70-advanced-topics/100-pipelines.html>
 
 ### 尚良し
 
 - 環境変数の取り扱いが容易であること（.env）
+  - たぶんOK
+  - <https://chaika.hatenablog.com/entry/2022/05/28/083000>
+    - dotenv使う
 - $ serverless inv？e でCLIから実行、$ serverless inv？e local みたいにローカルで実行といったことができるか？
-  - ？
+  - SAM使って実装すればいける
   - `sam local inv？e HelloWorldFunction`
 - Lambda@Edgeへのデプロイができる
-  - ？
-  - <https://dev.classmethod.jp/articles/net307-customizing-lambda-edge-sam/>
+  - たぶん？
+  - <https://dev.classmethod.jp/articles/aws-cdk-i-tried-linking-lambda-edge-to-cloudfront-distribution/>
+    - EdgeFunctionの箇所
 - IaCのドライランができること
   - deployコマンド実行時に変更セットを確認することが可能
+
 - スナップショットテストが実施できること
-  - 全リソース定義するため、そもそも不要
+  - たぶんOK
+  - <https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/testing.html>
+  - 生成されたCloudFormationを前回保存したものと比較し、意図した変更になっているか確認する
