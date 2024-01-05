@@ -2,14 +2,9 @@ import * as cdk from 'aws-cdk-lib';
 import { aws_s3 as s3 } from 'aws-cdk-lib';
 import { PythonFunction } from "@aws-cdk/aws-lambda-python-alpha"
 import { aws_lambda, Stack, StackProps } from 'aws-cdk-lib';
-import {
-  RestApi,
-  LambdaIntegration,
-  IResource,
-  MockIntegration,
-  PassthroughBehavior,
-  LambdaRestApi,
-} from 'aws-cdk-lib/aws-apigateway';
+import { RestApi, LambdaIntegration } from 'aws-cdk-lib/aws-apigateway';
+import { Rule, Schedule } from 'aws-cdk-lib/aws-events';
+import { LambdaFunction } from 'aws-cdk-lib/aws-events-targets';
 
 export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
@@ -30,5 +25,12 @@ export class CdkStack extends cdk.Stack {
     hello.addMethod('GET', new LambdaIntegration(python_function, {
       allowTestInvoke: false,
     }));
+
+    const python_function_target = new LambdaFunction(python_function)
+
+    new Rule(this, 'Rule', {
+      schedule: Schedule.rate(cdk.Duration.days(1)),
+      targets: [python_function_target]
+    })
   }
 }
