@@ -1,0 +1,26 @@
+{
+  "name": "cdk-sample",
+  "version": "1.0.0",
+  "description": "## 移行要件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goda-kazuki/cdk-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goda-kazuki/cdk-sample/issues"
+  },
+  "homepage": "https://github.com/goda-kazuki/cdk-sample#readme",
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.204.0",
+    "aws-cdk-lib": "^2.118.0"
+  },
+  "devDependencies": {
+    "@aws-cdk/aws-lambda-python-alpha": "^2.118.0-alpha.0"
+  }
+}
